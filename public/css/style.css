@@ -1,0 +1,1030 @@
+@import url('https://fonts.googleapis.com/css2?family=Cherry+Bomb+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bagel+Fat+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Knewave&display=swap');
+
+body {
+	font-family: Arial, sans-serif;
+	background-color: white;
+	color: #333;
+	margin: 0;
+	padding: 0;
+}
+
+header {
+	background-color: orange;
+	padding: 0.5rem 0;
+	color: white;
+	/*margin-bottom: 1.5rem;*/
+}
+
+.related-anime-container{
+	display: flex;
+	flex-wrap: wrap;
+	gap: 1rem;
+}
+
+.nav-pro-img {
+  width: 40px;
+  height: 40px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  /*border-radius: 50%;*/
+}
+
+#search-bar{
+	outline: none;
+}
+
+
+.navbar {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 0 2rem;
+}
+
+.nav-btn {
+	background: none;
+	color: white;
+	border: none;
+	font-size: 1rem;
+	cursor: pointer;
+	margin: auto;
+}
+
+.category-buttons {
+	display: flex;
+	justify-content: center;
+	margin-top: 2rem;
+}
+
+.category-buttons button {
+	position: relative;
+	color: orange;
+	background-color: white;
+	padding: 0.5rem 1rem;
+	margin: 0.1rem;
+	cursor: pointer;
+	border: none;
+	font-size: 1rem;
+	font-weight: 600;
+	transition: all 0.3s ease 0s;
+}
+
+.category-buttons button::after {
+	content: '';
+	position: absolute;
+	left: 50%;
+	bottom: 0;
+	transform: translateX(-50%) scaleX(0);
+	transform-origin: center;
+	width: 100%;
+	height: 2px;
+	background-color: orange;
+	transition: transform 0.3s ease;
+}
+
+.category-buttons button:hover::after {
+	transform: translateX(-50%) scaleX(1);
+}
+
+
+.logo {
+	font-family: "Cherry Bomb One", system-ui;
+	/*font-family: "Bagel Fat One", system-ui;*/
+	/*font-family: "Knewave", system-ui;*/
+	font-weight: 400;
+	margin-right: 1rem;
+}
+
+.logo a {
+	font-size: 2rem;
+	color: white;
+	text-decoration: none;
+}
+
+.search-box form {
+	display: flex;
+	align-items: center;
+}
+
+.search-box input[type="text"] {
+	padding: 0.5rem;
+	border: none;
+	border-radius: 5px 0 0 5px;
+	width: 35rem;
+}
+
+.search-box button {
+	background-color: white;
+	color: orange;
+	border: none;
+	padding: 0.5rem;
+	border-radius: 0 7px 7px 0;
+	cursor: pointer;
+}
+
+.search-box button:hover {
+	color: white;
+	background-color: #ff7f00;
+}
+
+.profile {
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	overflow: hidden;
+	border: 2px solid white;
+}
+
+.profile-icon {
+	display: flex;
+	align-items: center;
+}
+
+.profile-icon img {
+	cursor: pointer;
+}
+
+.navigation {
+	border: 2px solid firebrick;
+	display: flex;
+	flex-direction: row;
+}
+
+.nav-items {
+	width: 20rem;
+	display: flex;
+}
+
+.nav-items a {
+	text-decoration: none;
+	color: white;
+	cursor: pointer;
+	margin: auto;
+	font-size: 1rem;
+}
+
+.nav-item {
+	margin-right: 1rem;
+}
+
+.dropbtn {
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+}
+
+/* footer code starts */
+
+.footer {
+	background: orange;
+	color: white;
+	padding: 30px 0;
+	text-align: center;
+}
+
+.container {
+	width: 80%;
+	margin: auto;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+}
+
+.footer-sections {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	width: 100%;
+}
+
+.footer-logo,
+.footer-links,
+.footer-social,
+.footer-newsletter {
+	flex: 1;
+	min-width: 200px;
+	margin: 10px;
+}
+
+.footer h2,
+.footer h3 {
+	margin-bottom: 15px;
+}
+
+.footer ul {
+	list-style: none;
+	padding: 0;
+}
+
+.footer ul li {
+	margin-bottom: 8px;
+}
+
+.footer ul li a {
+	color: white;
+	text-decoration: none;
+}
+
+.footer ul li a:hover {
+	text-decoration: underline;
+}
+
+.footer-newsletter input {
+	width: 80%;
+	padding: 8px;
+	margin-right: 5px;
+	border: none;
+	border-radius: 5px;
+}
+
+.footer-newsletter button {
+	background: white;
+	color: orange;
+	border: none;
+	padding: 8px 12px;
+	cursor: pointer;
+	border-radius: 5px;
+	margin: 20px;
+}
+
+.footer-bottom {
+	margin-top: 20px;
+	font-size: 14px;
+}
+
+/* footer code ends */
+
+/*Anime Card*/
+.anime-cards-container {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 1rem;
+	justify-content: center;
+}
+
+.anime-card {
+	background-color: #f8f8f8;
+	border: 1px solid #ddd;
+	border-radius: 8px;
+	width: 250px;
+	overflow: hidden;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+	transition: transform 0.2s;
+}
+
+.anime-card:hover {
+	transform: scale(1.05);
+}
+
+.a-card {
+	border: 1px solid #b9b7b7;
+	background-color: white;
+	border-radius: 8px;
+	display: flex;
+	flex-direction: row;
+	width: 20rem;
+	height: 13rem;
+	padding: 0.5rem;
+	cursor: pointer;
+}
+
+.anim-img {
+	border-radius: 8px;
+	width: 10em;
+	height: 13em;
+}
+
+.anim-details {
+	display: flex;
+	flex-direction: column;
+	padding: 0.1rem 0.5rem;
+}
+
+.a-status {
+	border: 1px solid orange;
+	border-radius: 8px;
+	color: orange;
+	padding: 0.3em 0.75em;
+	text-align: center;
+	align-items: center;
+}
+
+.anim-genres {
+	display: flex;
+}
+
+.a-genre {
+	border: 1px solid orange;
+	border-radius: 8px;
+	color: orange;
+	text-align: center;
+	align-items: center;
+	font-size: small;
+	padding: 0.2em 0.3em;
+	margin: 0.25em;
+}
+
+.anim-rating {
+	display: flex;
+	flex-direction: row;
+	margin: 0.2em;
+	justify-content: space-around;
+}
+
+.tot-episodes {
+	margin: 0.5em 0px;
+	font-size: small;
+}
+
+.sma-txt {
+	margin: 0px;
+	font-size: small;
+}
+
+.anim-genres {
+	overflow: hidden;
+}
+
+.anim-title {
+	display: -webkit-box;
+	/*-webkit-line-clamp: 3;*/
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: normal;
+	margin: 0.4em 0em;
+	font-weight: bold;
+	font-size: medium;
+}
+
+.anime-image {
+	width: 100%;
+	height: 350px;
+	object-fit: cover;
+}
+
+.anime-details {
+	padding: 1rem;
+}
+
+.anime-title {
+	font-size: 1.2rem;
+	margin-bottom: 0.5rem;
+}
+
+.anime-rating,
+.anime-genres,
+.anime-status {
+	font-size: 0.9rem;
+	margin: 0.25rem 0;
+}
+
+/*slider here*/
+.slider-wrapper {
+	position: relative;
+	width: 100%;
+	height: 525px;
+	background-color: white;
+	overflow: hidden;
+	font-family: 'Poppins', sans-serif;
+}
+
+.slider {
+	display: flex;
+	width: 100%;
+	height: 100%;
+	transition: transform 0.5s ease-in-out;
+}
+
+.slide {
+	flex-shrink: 0;
+	width: 100%;
+	/* THIS is critical */
+	height: 100%;
+	display: flex;
+	position: relative;
+	justify-content: flex-end;
+}
+
+.slide-image-container {
+	width: 70%;
+	height: 100%;
+	overflow: hidden;
+	position: relative;
+}
+
+.anime-image {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	box-shadow: inset 0 0 60px rgba(0, 0, 0, 0.3);
+	/* Inner shadow */
+	border-radius: 0;
+}
+
+/* Info box overlaps into image slightly */
+.slide-info {
+	position: absolute;
+	left: 0;
+	top: 0;
+	height: 100%;
+	width: 55%;
+	/* Gives space for overlapping into image */
+	padding: 50px 60px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	z-index: 2;
+	background: linear-gradient(to right, white 60%, transparent 100%);
+}
+
+.anime-title {
+	font-size: 2.6rem;
+	margin-bottom: 20px;
+	color: black;
+}
+
+.anime-description {
+	font-size: 1.05rem;
+	color: #333;
+	margin-bottom: 25px;
+}
+
+.slider-buttons {
+	display: flex;
+	gap: 12px;
+}
+
+.btn {
+	padding: 10px 20px;
+	border-radius: 25px;
+	font-size: 1rem;
+	text-decoration: none;
+	transition: 0.3s;
+}
+
+.btn.watch-now {
+	background-color: #FFA500;
+	color: black;
+	font-weight: 600;
+}
+
+.btn.detail {
+	background-color: transparent;
+	color: black;
+	border: 1px solid #999;
+}
+
+/* Nav buttons stacked right */
+.vertical-nav-buttons {
+	position: absolute;
+	right: 20px;
+	top: 75%;
+	transform: translateY(-50%);
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+	z-index: 5;
+}
+
+.slider-btn {
+	background-color: rgba(0, 0, 0, 0.7);
+	color: white;
+	border: none;
+	padding: 0.5rem 1rem;
+	border-radius: 12px;
+	cursor: pointer;
+	transition: 0.3s ease;
+	height: 3rem;
+	width: 3rem;
+}
+
+.slider-btn:hover {
+	background-color: rgba(0, 0, 0, 1);
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+	.slide {
+		flex-direction: column;
+	}
+
+	.slide-info,
+	.slide-image-container {
+		width: 100%;
+		position: static;
+	}
+
+	.slide-info {
+		background: white;
+		padding: 30px;
+	}
+}
+
+
+
+/*end*/
+
+
+/*Pop Up message*/
+.pop-up {
+	opacity: 0;
+	transition: opacity 0.3s ease;
+	position: fixed;
+	bottom: 0;
+	right: 0;
+	z-index: 999;
+	background-color: rgba(255, 127, 0, 0.8);
+	color: white;
+	margin: 1rem;
+	height: auto;
+	max-width: 15rem;
+	min-height: 7rem;
+	padding: 1rem;
+	border-radius: 8px;
+	display: none; /* Start hidden */
+}
+
+.pop-up.show {
+	display: flex;
+	opacity: 1;
+}
+
+.msg-title {
+	font-weight: 700;
+	color: white;
+}
+
+.msg-info {
+	color: white;
+}
+
+.no-m-y {
+	margin-top: 0.2rem;
+	margin-bottom: 0px;
+}
+
+/*Pop Up message end*/
+
+
+.anime-list-container {
+	position: relative;
+	overflow: hidden;
+	padding-right: 1rem;
+	display: flex;
+	flex-direction: row;
+}
+
+.margin-y {
+	margin: 3rem auto;
+}
+
+.margin-x {
+	margin-left: 2rem;
+}
+
+.view-more {
+	color: #ff7f00;
+	text-decoration: none;
+}
+
+.anime-list {
+	display: flex;
+	overflow-x: auto;
+	scroll-behavior: smooth;
+	white-space: nowrap;
+	gap: 10px;
+	margin: 0 1.25rem;
+	/* Same as button width to keep spacing */
+	scrollbar-width: none;
+	/* Firefox */
+}
+
+.anime-list::-webkit-scrollbar {
+	display: none;
+	/* Chrome, Safari, Edge */
+}
+
+.scroll-btns {
+	display: flex;
+	flex-direction: column;
+	padding: 0.5rem 0;
+}
+
+.scroll-button {
+	height: 45%;
+	margin: auto;
+	background-color: rgba(0, 0, 0, 0.7);
+	color: white;
+	border: none;
+	padding: 0.5rem 1rem;
+	border-radius: 8px;
+	cursor: pointer;
+	transition: 0.3s ease;
+}
+
+
+
+/*Login Popup Here*/
+.loginPopup {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	background-color: white;
+	padding: 2rem;
+	border-radius: 10px;
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+	z-index: 1000;
+	display: none;
+	/* initially hidden */
+	width: 300px;
+	color: black;
+}
+
+.closeBtn {
+	position: absolute;
+	top: 10px;
+	right: 15px;
+	font-size: 20px;
+	cursor: pointer;
+}
+
+
+
+/*anime Details Page*/
+.anime-details-container {
+	display: flex;
+	gap: 2rem;
+	padding: 2rem;
+}
+
+.anime-details-left {
+	width: 40%;
+}
+
+.anime-cover {
+	width: 100%;
+	height: auto;
+	max-height: 60%;
+	object-fit: cover;
+}
+
+.anime-info {
+	margin-top: 1rem;
+}
+
+.anime-details-right {
+	width: 60%;
+}
+
+.episodes {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 1rem;
+	margin-top: 1rem;
+}
+
+.episode-btn {
+	border: 2px solid orange;
+	color: orange;
+	background-color: white;
+	padding: 0.5rem 1rem;
+	margin: 0.2rem;
+	cursor: pointer;
+	border-radius: 5px;
+}
+
+.episode-btn.watched {
+	background-color: orange;
+	color: white;
+}
+
+
+.episode-btn:hover {
+	background-color: #ff7f00;
+}
+
+
+/*Profile*/
+.profile {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 2px solid white;
+	cursor: pointer;
+}
+
+.profile-icon {
+    display: flex;
+    align-items: center;
+}
+
+.profile-icon img {
+    cursor: pointer;
+}
+
+/*Loader*/
+
+.loaderBox{
+	/*border: 1px solid #b9b7b7;*/
+	/*border-radius: 8px;*/
+	display: flex;
+	flex-direction: row;
+	width: 13rem;
+	height: 13rem;
+	padding: 0.5rem;
+	cursor: pointer;
+	margin: 1rem auto;
+}
+
+.loadingspinner {
+  --square: 26px;
+  --offset: 30px;
+  --duration: 2.4s;
+  --delay: 0.2s;
+  --timing-function: ease-in-out;
+  --in-duration: 0.4s;
+  --in-delay: 0.1s;
+  --in-timing-function: ease-out;
+  width: calc( 3 * var(--offset) + var(--square));
+  height: calc( 2 * var(--offset) + var(--square));
+  padding: 0px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10px;
+  margin-bottom: 30px;
+  position: relative;
+}
+
+.loadingspinner div {
+  display: inline-block;
+  background: orange;
+    /*background: var(--text-color);*/
+    /*box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4);*/
+  border: none;
+  border-radius: 2px;
+  width: var(--square);
+  height: var(--square);
+  position: absolute;
+  padding: 0px;
+  margin: 0px;
+  font-size: 6pt;
+  color: black;
+}
+
+.loadingspinner #square1 {
+  left: calc( 0 * var(--offset) );
+  top: calc( 0 * var(--offset) );
+  animation: square1 var(--duration) var(--delay) var(--timing-function) infinite,
+               squarefadein var(--in-duration) calc(1 * var(--in-delay)) var(--in-timing-function) both;
+}
+
+.loadingspinner #square2 {
+  left: calc( 0 * var(--offset) );
+  top: calc( 1 * var(--offset) );
+  animation: square2 var(--duration) var(--delay) var(--timing-function) infinite,
+              squarefadein var(--in-duration) calc(1 * var(--in-delay)) var(--in-timing-function) both;
+}
+
+.loadingspinner #square3 {
+  left: calc( 1 * var(--offset) );
+  top: calc( 1 * var(--offset) );
+  animation: square3 var(--duration) var(--delay) var(--timing-function) infinite,
+               squarefadein var(--in-duration) calc(2 * var(--in-delay)) var(--in-timing-function) both;
+}
+
+.loadingspinner #square4 {
+  left: calc( 2 * var(--offset) );
+  top: calc( 1 * var(--offset) );
+  animation: square4 var(--duration) var(--delay) var(--timing-function) infinite,
+               squarefadein var(--in-duration) calc(3 * var(--in-delay)) var(--in-timing-function) both;
+}
+
+.loadingspinner #square5 {
+  left: calc( 3 * var(--offset) );
+  top: calc( 1 * var(--offset) );
+  animation: square5 var(--duration) var(--delay) var(--timing-function) infinite,
+               squarefadein var(--in-duration) calc(4 * var(--in-delay)) var(--in-timing-function) both;
+}
+
+@keyframes square1 {
+  0% {
+    left: calc( 0 * var(--offset) );
+    top: calc( 0 * var(--offset) );
+  }
+
+  8.333% {
+    left: calc( 0 * var(--offset) );
+    top: calc( 1 * var(--offset) );
+  }
+
+  100% {
+    left: calc( 0 * var(--offset) );
+    top: calc( 1 * var(--offset) );
+  }
+}
+
+@keyframes square2 {
+  0% {
+    left: calc( 0 * var(--offset) );
+    top: calc( 1 * var(--offset) );
+  }
+
+  8.333% {
+    left: calc( 0 * var(--offset) );
+    top: calc( 2 * var(--offset) );
+  }
+
+  16.67% {
+    left: calc( 1 * var(--offset) );
+    top: calc( 2 * var(--offset) );
+  }
+
+  25.00% {
+    left: calc( 1 * var(--offset) );
+    top: calc( 1 * var(--offset) );
+  }
+
+  83.33% {
+    left: calc( 1 * var(--offset) );
+    top: calc( 1 * var(--offset) );
+  }
+
+  91.67% {
+    left: calc( 1 * var(--offset) );
+    top: calc( 0 * var(--offset) );
+  }
+
+  100% {
+    left: calc( 0 * var(--offset) );
+    top: calc( 0 * var(--offset) );
+  }
+}
+
+@keyframes square3 {
+  0%,100% {
+    left: calc( 1 * var(--offset) );
+    top: calc( 1 * var(--offset) );
+  }
+
+  16.67% {
+    left: calc( 1 * var(--offset) );
+    top: calc( 1 * var(--offset) );
+  }
+
+  25.00% {
+    left: calc( 1 * var(--offset) );
+    top: calc( 0 * var(--offset) );
+  }
+
+  33.33% {
+    left: calc( 2 * var(--offset) );
+    top: calc( 0 * var(--offset) );
+  }
+
+  41.67% {
+    left: calc( 2 * var(--offset) );
+    top: calc( 1 * var(--offset) );
+  }
+
+  66.67% {
+    left: calc( 2 * var(--offset) );
+    top: calc( 1 * var(--offset) );
+  }
+
+  75.00% {
+    left: calc( 2 * var(--offset) );
+    top: calc( 2 * var(--offset) );
+  }
+
+  83.33% {
+    left: calc( 1 * var(--offset) );
+    top: calc( 2 * var(--offset) );
+  }
+
+  91.67% {
+    left: calc( 1 * var(--offset) );
+    top: calc( 1 * var(--offset) );
+  }
+}
+
+@keyframes square4 {
+  0% {
+    left: calc( 2 * var(--offset) );
+    top: calc( 1 * var(--offset) );
+  }
+
+  33.33% {
+    left: calc( 2 * var(--offset) );
+    top: calc( 1 * var(--offset) );
+  }
+
+  41.67% {
+    left: calc( 2 * var(--offset) );
+    top: calc( 2 * var(--offset) );
+  }
+
+  50.00% {
+    left: calc( 3 * var(--offset) );
+    top: calc( 2 * var(--offset) );
+  }
+
+  58.33% {
+    left: calc( 3 * var(--offset) );
+    top: calc( 1 * var(--offset) );
+  }
+
+  100% {
+    left: calc( 3 * var(--offset) );
+    top: calc( 1 * var(--offset) );
+  }
+}
+
+@keyframes square5 {
+  0% {
+    left: calc( 3 * var(--offset) );
+    top: calc( 1 * var(--offset) );
+  }
+
+  50.00% {
+    left: calc( 3 * var(--offset) );
+    top: calc( 1 * var(--offset) );
+  }
+
+  58.33% {
+    left: calc( 3 * var(--offset) );
+    top: calc( 0 * var(--offset) );
+  }
+
+  66.67% {
+    left: calc( 2 * var(--offset) );
+    top: calc( 0 * var(--offset) );
+  }
+
+  75.00% {
+    left: calc( 2 * var(--offset) );
+    top: calc( 1 * var(--offset) );
+  }
+
+  100% {
+    left: calc( 2 * var(--offset) );
+    top: calc( 1 * var(--offset) );
+  }
+}
+
+@keyframes squarefadein {
+  0% {
+    transform: scale(0.75);
+    opacity: 0.0;
+  }
+
+  100% {
+    transform: scale(1.0);
+    opacity: 1.0;
+  }
+}
+/*Loader*/
+
+
+.flexIt{
+	display: flex;
+	margin: auto;
+}
+
+/*Login Button*/
+.button {
+  background-color: #ff80009c;
+  color: #fff;
+  width: 8.5em;
+  height: 2.9em;
+  border: #ff7f00 0.4em solid;
+  border-radius: 11px;
+  text-align: right;
+  transition: all 0.6s ease;
+}
+
+.button:hover {
+  background-color: #ff7f00;
+  cursor: pointer;
+}
+
+.button svg {
+  width: 1.6em;
+  margin: -0.2em 0.8em 1em;
+  position: absolute;
+  display: flex;
+  transition: all 0.6s ease;
+}
+
+.button:hover svg {
+  transform: translateX(5px);
+}
+
+.text {
+  margin: 0 1.5em
+}

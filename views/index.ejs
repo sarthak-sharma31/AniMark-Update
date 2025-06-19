@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>
+    <%= title %>
+  </title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <%- include('partials/header') %>
+
+    <!-- Slider for New Anime Releases -->
+    <div class="slider-wrapper">
+      <div class="slider">
+        <% sliderData.forEach(anime=> { %>
+          <div class="slide">
+            <div class="slide-info">
+              <h2 class="anime-title">
+                <% if (!anime.title_english) {%>
+                  <%= anime.title %>
+                    <%} else{%>
+                      <%= anime.title_english %>
+                        <% } %>
+              </h2>
+              <p class="anime-description">
+                <%= anime.synopsis ? anime.synopsis.slice(0, 200) + "..." : "No description available." %>
+              </p>
+              <div class="slider-buttons">
+                <a href="/watch/<%= anime.id %>" class="btn watch-now">Mark Anime</a>
+                <a href="/anime/<%= anime.id %>" class="btn detail">Detail</a>
+              </div>
+            </div>
+            <div class="slide-image-container">
+              <img src="<%= anime.trailer.images.maximum_image_url %>" class="anime-image">
+            </div>
+          </div>
+          <% }) %>
+      </div>
+
+      <div class="vertical-nav-buttons">
+        <button class="slider-btn" onclick="nextSlide()">&#10095;</button>
+        <button class="slider-btn" onclick="prevSlide()">&#10094;</button>
+      </div>
+    </div>
+
+
+    <div class="category-buttons">
+      <button onclick="window.location.href='/category/new'">New</button>
+      <button onclick="window.location.href='/category/top'">Top</button>
+      <button onclick="window.location.href='/category/movies'">Movies</button>
+      <button onclick="window.location.href='/category/ova'">OVA</button>
+      <button onclick="window.location.href='/category/ona'">ONA</button>
+      <button onclick="window.location.href='/category/upcoming'">Upcoming</button>
+      <button onclick="window.location.href='/category/summer'">Summer</button>
+      <button onclick="window.location.href='/category/winter'">Winter</button>
+      <button onclick="window.location.href='/category/spring'">Spring</button>
+    </div>
+
+
+    <main>
+
+      <!-- Section for New Releases -->
+      <section class="new-releases margin-y">
+        <h2 class="margin-x">New Releases <a href="/category/new" class="view-more">View More</a></h2>
+        <div class="anime-list-container">
+          <div class="anime-list">
+            <% newReleases.forEach(anime=> { %>
+              <%- include('partials/animeCard', { anime: anime }) %>
+                <% }) %>
+          </div>
+          <div class="scroll-btns">
+            <button class="scroll-button right" onclick="scrollRight('.new-releases .anime-list')">&#10095;</button>
+            <button class="scroll-button left" onclick="scrollLeft('.new-releases .anime-list')">&#10094;</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section for Popular Anime -->
+      <section class="popular-anime margin-y">
+        <h2 class="margin-x">Popular Anime <a href="/category/top" class="view-more">View More</a></h2>
+        <div class="anime-list-container">
+          <div class="anime-list">
+            <% popularAnime.forEach(anime=> { %>
+              <%- include('partials/animeCard', { anime: anime }) %>
+                <% }) %>
+          </div>
+          <div class="scroll-btns">
+            <button class="scroll-button right" onclick="scrollRight('.popular-anime .anime-list')">&#10095;</button>
+            <button class="scroll-button left" onclick="scrollLeft('.popular-anime .anime-list')">&#10094;</button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <%- include('partials/footer') %>
+      <script>
+        let currentIndex = 0;
+
+        function showSlide(index) {
+          const slider = document.querySelector('.slider');
+          const totalSlides = document.querySelectorAll('.slide').length;
+
+          if (index < 0) {
+            currentIndex = totalSlides - 1;
+          } else if (index >= totalSlides) {
+            currentIndex = 0;
+          } else {
+            currentIndex = index;
+          }
+
+          const offset = -currentIndex * 100;
+          slider.style.transform = `translateX(${offset}%)`;
+        }
+
+        function nextSlide() {
+          showSlide(currentIndex + 1);
+        }
+
+        function prevSlide() {
+          showSlide(currentIndex - 1);
+        }
+
+        // Optional: autoplay
+        // setInterval(() => nextSlide(), 8000);
+      </script>
+
+      <script src="/js/index.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>
+    <% if (anime.title_english !=null) {%>
+      <%= anime.title_english %>
+        <%}else{%>
+          <%= anime.title %>
+            <%}%>
+  </title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <%- include('partials/header') %>
+    <main class="anime-details-container">
+      <% if (anime) { %>
+        <div class="anime-details-left">
+          <img src="<%= anime.images.jpg.image_url %>" alt="<%= anime.title_english %>" class="anime-cover">
+          <div class="anime-info">
+            <h1>
+              <% if (anime.title_english !=null) {%>
+                <%= anime.title_english %>
+                  <%}else{%>
+                    <%= anime.title %>
+                      <%}%>
+            </h1>
+            <p>Rating: <%= anime.score %> (<%= anime.scored_by %> users)</p>
+            <p>Genres: <%= anime.genres.map(genre=> genre.name).join(', ') %></p>
+            <p>Status: <%= anime.status %>
+            </p>
+            <p>Synopsis: <%= anime.synopsis %>
+            </p>
+            <button id="watchlist-btn" data-in-watchlist="<%= isInWatchlist %>">
+              <%= isInWatchlist ? 'Remove from Watchlist' : 'Add to Watchlist' %>
+            </button>
+            <button id="mark-btn" data-marked="<%= isMarked %>">
+              <%= isMarked ? 'UnMark Anime' : 'Mark Anime' %>
+            </button>
+            <button id="clear-all-episodes-btn">Clear All Episodes</button>
+            <div>
+              <iframe width="800" height="500" src="<%= anime.trailer.embed_url%>" title="<%=anime.title%>" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+          </div>
+        </div>
+        <div class="anime-details-right">
+          <h2>Episodes</h2>
+
+          <% if (anime.episodes && anime.episodes> 0) { %>
+            <select id="episode-range">
+              <% for (let start=1; start <=anime.episodes; start +=100) { %>
+                <% let end=Math.min(start + 99, anime.episodes); %>
+                  <option value="<%= start %>-<%= end %>">
+                    <%= start %>-<%= end %>
+                  </option>
+                  <% } %>
+            </select>
+            <% } else { %>
+              <p>No episode data available.</p>
+              <% } %>
+
+                <div class="episodes" id="episodes-container">
+                  <% for (let i=1; i <=anime.episodes; i++) { %>
+                    <button class="episode-btn <%= i <= lastWatchedEpisode ? 'watched' : '' %>" data-episode="<%= i %>">
+                      <%= i %>
+                    </button>
+                    <% } %>
+                </div>
+
+                <h2>Comments</h2>
+                <div class="comments">
+                  <form id="comment-form">
+                    <textarea id="comment-text" placeholder="Leave a comment..." required></textarea>
+                    <button type="submit">Submit</button>
+                  </form>
+                  <div id="comments-container">
+                    <!-- Comments will be appended here -->
+                  </div>
+                </div>
+        </div>
+        <% } else { %>
+          <p>Anime details not available.</p>
+          <% } %>
+    </main>
+    <div class="related-anime">
+      <h2>Related Anime</h2>
+      <% if (relatedAnime.length> 0) { %>
+        <div class="related-anime-container">
+          <% relatedAnime.forEach(anime=> { %>
+            <div class="related-anime-card">
+              <a href="/anime/<%= anime.id %>">
+                <img src="<%= anime.image %>" alt="<%= anime.title %>" class="related-anime-img">
+              </a>
+              <div class="related-anime-info">
+                <a href="/anime/<%= anime.id %>" class="related-anime-title">
+                  <%= anime.title %>
+                </a>
+                <p>Votes: <%= anime.votes %>
+                </p>
+              </div>
+            </div>
+            <% }) %>
+        </div>
+        <% } else { %>
+          <p>No related anime found.</p>
+          <% } %>
+    </div>
+
+    <%- include('partials/footer') %>
+      <script src="/js/animeDetails.js"></script>
+</body>
+
+</html>

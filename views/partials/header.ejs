@@ -1,0 +1,109 @@
+<header>
+	<nav class="navbar">
+		<div class="logo">
+			<a href="/">AniMark</a>
+		</div>
+		<div class="search-box">
+			<form action="/search" method="get">
+				<input type="text" id="search-bar" autocomplete="off" name="query" placeholder="Search Anime...">
+				<button id="search-btn" type="submit">Search</button>
+			</form>
+		</div>
+
+		<div class="nav-items">
+			<a href="/">Home</a>
+			<!-- Correct way to use buttons for navigation -->
+			<button class="nav-btn" type="button" onclick="handleNavigation(event, '/api/user/watchlist')">Watchlist</button>
+			<button class="nav-btn" type="button" onclick="handleNavigation(event, '/api/user/markedAnime')">Marked</button>
+			<button class="nav-btn" type="button" onclick="handleNavigation(event, '/api/user/ongoingAnime')">Ongoing</button>
+
+
+		</div>
+
+		<div class="profile nav-item">
+			<a href="/profile" class="dropbtn">
+				<div class="nav-pro-img" style="background-image: url('<%= dbProfileImage %>');"></div>
+			</a>
+		</div>
+
+		<!--<button onclick="openLoginModal()">Login</button>-->
+		<% if (isAuthenticated) { %>
+			<!--<form action="/api/auth/logout" method="POST" style="display: inline;">
+				<button  type="submit" class="button">
+
+
+					<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+						<path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75"></path>
+					</svg>
+
+
+					<div class="text">
+						logout
+					</div>
+
+				</button>
+
+			</form>-->
+			<% } else { %>
+				<!--<button onclick="openLoginModal()">Login</button>-->
+				<button  onclick="openLoginModal()"class="button">
+
+
+					<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+						<path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75"></path>
+					</svg>
+
+
+					<div class="text">
+						Login
+					</div>
+
+				</button>
+
+				<% } %>
+
+	</nav>
+	<div class="pop-up">
+		<div class="message">
+			<p class="msg-title no-m-y">Message</p>
+			<p class="msg-info no-m-y">Here is the bigger info!</p>
+		</div>
+	</div>
+
+	<div class="loginPopup">
+		<!-- Login -->
+		<div class="loginHere">
+			<span class="closeBtn" onclick="closeLoginModal()">×</span>
+			<h1>Login</h1>
+			<form id="loginForm">
+				<label for="email">Email:</label>
+				<input type="email" id="email" name="email" value="buba@gmail.com" required>
+				<label for="password">Password:</label>
+				<input type="password" id="password" name="password" value="Iambuba@1" required>
+				<button type="submit">Login</button>
+			</form>
+			<p>Don't have an account? <button onclick="toggleForm('register')">Register</button></p>
+			<p><a href="/forgot-password">Forgot Password?</a></p>
+		</div>
+
+		<!-- Register -->
+		<div class="registerHere" style="display: none;">
+			<span class="closeBtn" onclick="closeLoginModal()">×</span>
+			<h1>Register</h1>
+			<form action="/api/auth/register" method="post">
+				<label for="username">Username:</label>
+				<input type="text" id="username" name="username" required>
+				<label for="email">Email:</label>
+				<input type="email" id="email" name="email" required>
+				<label for="password">Password:</label>
+				<input type="password" id="password" name="password" required>
+				<button type="submit">Register</button>
+			</form>
+			<p>Already have an account? <button onclick="toggleForm('login')">Login</button></p>
+		</div>
+	</div>
+
+</header>
+
+<script src="/js/login.js"></script>
+<script src="/js/popup.js"></script>
