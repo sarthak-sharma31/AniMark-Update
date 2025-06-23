@@ -1,9 +1,15 @@
 <header>
 	<nav class="navbar">
+		<button class="hamburger" onclick="toggleMenu()">
+			&#9776; <!-- Unicode for hamburger -->
+		</button>
 		<div class="logo">
 			<a href="/">AniMark</a>
 		</div>
-		<div class="search-box">
+		<button class="search-toggle" onclick="toggleSearch()">
+			🔍
+		</button>
+		<div class="search-box" id="searchBox">
 			<form action="/search" method="get">
 				<input type="text" id="search-bar" autocomplete="off" name="query" placeholder="Search Anime...">
 				<button id="search-btn" type="submit">Search</button>
@@ -46,7 +52,7 @@
 			</form>-->
 			<% } else { %>
 				<!--<button onclick="openLoginModal()">Login</button>-->
-				<button  onclick="openLoginModal()"class="button">
+				<button onclick="openLoginModal()" class="button">
 
 
 					<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
@@ -77,9 +83,9 @@
 			<h1>Login</h1>
 			<form id="loginForm">
 				<label for="email">Email:</label>
-				<input type="email" id="email" name="email" required>
+				<input type="email" id="email" name="email" value="buba@gmail.com" required>
 				<label for="password">Password:</label>
-				<input type="password" id="password" name="password" required>
+				<input type="password" id="password" name="password" value="Iambuba@1" required>
 				<button type="submit">Login</button>
 			</form>
 			<p>Don't have an account? <button onclick="toggleForm('register')">Register</button></p>

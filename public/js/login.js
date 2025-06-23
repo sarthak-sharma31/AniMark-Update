@@ -93,3 +93,52 @@ function toggleForm(type) {
 		document.querySelector('.registerHere').style.display = 'none';
 	}
 }
+
+
+function toggleMenu() {
+	const navItems = document.querySelector('.nav-items');
+	navItems.classList.toggle('active');
+}
+
+function toggleSearch() {
+  const searchBox = document.getElementById('searchBox');
+  const navbar = document.querySelector('.navbar');
+
+  const isActive = searchBox.classList.toggle('active');
+  if (isActive) {
+    navbar.classList.add('search-mode');
+  } else {
+    navbar.classList.remove('search-mode');
+  }
+
+  // Track if search is active
+let isSearchMode = false;
+
+function toggleSearch() {
+  const searchBox = document.getElementById('searchBox');
+  const navbar = document.querySelector('.navbar');
+
+  isSearchMode = !searchBox.classList.toggle('active');
+  if (!isSearchMode) {
+    navbar.classList.add('search-mode');
+  } else {
+    navbar.classList.remove('search-mode');
+  }
+}
+
+// Click outside to exit search mode
+document.addEventListener('click', function (event) {
+  const searchBox = document.getElementById('searchBox');
+  const navbar = document.querySelector('.navbar');
+  const searchToggle = document.querySelector('.search-toggle');
+
+  const clickedInsideSearch =
+    searchBox.contains(event.target) || searchToggle.contains(event.target);
+
+  if (!clickedInsideSearch && searchBox.classList.contains('active')) {
+    searchBox.classList.remove('active');
+    navbar.classList.remove('search-mode');
+  }
+});
+
+}
