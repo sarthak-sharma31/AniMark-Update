@@ -1106,8 +1106,7 @@ header {
 		display: none;
 		flex-direction: column;
 		position: absolute;
-		top: 3.85rem;
-		/* adjust based on your navbar height */
+		top: 3.8rem;
 		left: 0;
 		right: 0;
 		background-color: orange;
@@ -1117,6 +1116,8 @@ header {
 
 	.nav-items.active {
 		display: flex;
+		width: 75vw;
+		height: 90vh;
 	}
 
 	.hamburger {
@@ -1148,10 +1149,6 @@ header {
 
 	.search-box.active {
 		display: block;
-	}
-
-	.nav-items {
-		display: none !important;
 	}
 
 	.search-toggle {
