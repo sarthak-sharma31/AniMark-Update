@@ -2,6 +2,27 @@
 @import url('https://fonts.googleapis.com/css2?family=Bagel+Fat+One&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Knewave&display=swap');
 
+/*svg icons*/
+/*https://svgicons.sparkk.fr/*/
+.svg-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.svg-icon path,
+.svg-icon polygon,
+.svg-icon rect {
+	fill: #ffff;
+}
+
+.svg-icon circle {
+	stroke: #ffff;
+	stroke-width: 5;
+}
+
+
+/*icons end*/
+
 body {
 	font-family: Arial, sans-serif;
 	background-color: white;
@@ -86,6 +107,10 @@ header {
 	font-size: 2rem;
 	color: white;
 	text-decoration: none;
+}
+
+.search-box {
+	transition: transform 1s ease;
 }
 
 .search-box form {
@@ -1087,6 +1112,48 @@ header {
 	height: 2rem;
 }
 
+/*profile page starts here*/
+.justify-it {
+	display: flex;
+	margin: 2rem auto;
+	/*flex-wrap: wrap;*/
+}
+
+.profile-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 35%;
+}
+
+.p-updates {
+	width: 65%;
+}
+
+.profile-image {
+	width: 25rem;
+	height: 25rem;
+	border-radius: 50%;
+	border: 5px solid orange;
+	background-size: contain;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+.add-m {
+	margin: 1rem 0px;
+}
+
+.flex-c input {
+	outline: none;
+}
+
+.flex-c {
+	display: flex;
+	flex-direction: column;
+	width: 90%;
+}
+
 
 /*RESPONSIVENESS*/
 @media only screen and (max-width: 1320px) {
@@ -1099,9 +1166,50 @@ header {
 	.search-box input[type="text"] {
 		width: 15rem;
 	}
+
+	.justify-it {
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+	}
+
+	.profile-container {
+		width: 100%;
+		margin: 1rem auto;
+	}
+
+	.p-updates {
+		display: flex;
+		flex-direction: column;
+		width: 80%;
+		margin-left: auto;
+		margin-right: auto;
+		align-items: center;
+	}
+
+	.profile-image {
+		width: 18rem;
+		height: 18rem;
+	}
 }
 
 @media only screen and (max-width: 980px) {
+	.navbar {
+		justify-content: flex-start;
+	}
+
+	.profile {
+		margin-left: 1rem;
+	}
+
+	.search-box {
+		margin: auto;
+	}
+
+	.search-toggle {
+		margin-left: auto;
+	}
+
 	.nav-items {
 		display: none;
 		flex-direction: column;
@@ -1131,12 +1239,12 @@ header {
 }
 
 @media only screen and (max-width: 850px) {
-	/*.search-box{
-		display: none;
-	}*/
-
 	.search-box input[type="text"] {
 		width: 10rem;
+	}
+	.profile-image{
+		width: 12rem;
+		height: 12rem;
 	}
 }
 
@@ -1144,7 +1252,11 @@ header {
 	.search-box {
 		display: none;
 		width: 100%;
-		padding: 0.5rem;
+		padding: 0px 0.5rem;
+	}
+
+	.search-box input[type="text"] {
+		width: 100%;
 	}
 
 	.search-box.active {
@@ -1155,15 +1267,27 @@ header {
 		display: block;
 	}
 
-	.navbar.search-mode {
-		flex-direction: column;
-		align-items: flex-start;
+	.search-toggle.hide {
+		display: none;
 	}
 
-	.navbar{
+	.logo.hide {
+		display: none;
+	}
+
+	.profile.hide {
+		display: none;
+	}
+
+	.navbar {
 		padding: 0 0.5rem;
 	}
+
 	.logo a {
 		font-size: 1.35rem;
+	}
+	.profile-image{
+		width: 8rem;
+		height: 8rem;
 	}
 }

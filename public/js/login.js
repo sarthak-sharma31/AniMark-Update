@@ -102,13 +102,19 @@ function toggleMenu() {
 
 function toggleSearch() {
   const searchBox = document.getElementById('searchBox');
-  const navbar = document.querySelector('.navbar');
+  const search = document.querySelector('.search-toggle');
+  const logo = document.querySelector('.logo');
+  const profile = document.querySelector('.profile');
 
   const isActive = searchBox.classList.toggle('active');
   if (isActive) {
-    navbar.classList.add('search-mode');
+    search.classList.add('hide');
+    logo.classList.add('hide');
+    profile.classList.add('hide');
   } else {
-    navbar.classList.remove('search-mode');
+    search.classList.remove('hide');
+	logo.classList.remove('hide');
+	profile.classList.remove('hide');
   }
 
   // Track if search is active
@@ -116,20 +122,29 @@ let isSearchMode = false;
 
 function toggleSearch() {
   const searchBox = document.getElementById('searchBox');
-  const navbar = document.querySelector('.navbar');
+  const search = document.querySelector('.search-toggle');
+  const logo = document.querySelector('.logo');
+  const profile = document.querySelector('.profile');
 
   isSearchMode = !searchBox.classList.toggle('active');
   if (!isSearchMode) {
-    navbar.classList.add('search-mode');
+    search.classList.add('hide');
+	logo.classList.add('hide');
+	profile.classList.add('hide');
   } else {
-    navbar.classList.remove('search-mode');
+    search.classList.remove('hide');
+	logo.classList.remove('hide');
+	profile.classList.remove('hide');
   }
 }
 
 // Click outside to exit search mode
 document.addEventListener('click', function (event) {
   const searchBox = document.getElementById('searchBox');
-  const navbar = document.querySelector('.navbar');
+  const search = document.querySelector('.search-toggle');
+  const logo = document.querySelector('.logo');
+  const profile = document.querySelector('.profile');
+
   const searchToggle = document.querySelector('.search-toggle');
 
   const clickedInsideSearch =
@@ -137,7 +152,9 @@ document.addEventListener('click', function (event) {
 
   if (!clickedInsideSearch && searchBox.classList.contains('active')) {
     searchBox.classList.remove('active');
-    navbar.classList.remove('search-mode');
+    search.classList.remove('hide');
+	logo.classList.remove('hide');
+	profile.classList.remove('hide');
   }
 });
 
