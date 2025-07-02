@@ -26,7 +26,7 @@ const userSchema = new mongoose.Schema({
   username: { type: String, required: true, unique: true },
   email: { type: String, required: true, unique: true },
   password: { type: String, required: true },
-  profileImage: { type: String, default: 'default_image_url' },
+  profileImage: { type: String, default: '/images/anime-characters/default.jpg' },
   watchlist: [{ type: String }],
   markedAnime: [{ type: String }],
   ongoingAnime: [ongoingAnimeSchema],
