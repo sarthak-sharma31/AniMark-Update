@@ -47,16 +47,16 @@
       <!-- Anime Cards Section (Now Empty, will be filled by JS) -->
       <div class="anime-cards-container"></div>
       <!--Loading Card-->
-          <div class="loaderBox">
-            <div class="loadingspinner flexIt">
-              <div id="square1"></div>
-              <div id="square2"></div>
-              <div id="square3"></div>
-              <div id="square4"></div>
-              <div id="square5"></div>
-            </div>
-          </div>
-          <!--Loading Card-->
+      <div class="loaderBox">
+        <div class="loadingspinner flexIt">
+          <div id="square1"></div>
+          <div id="square2"></div>
+          <div id="square3"></div>
+          <div id="square4"></div>
+          <div id="square5"></div>
+        </div>
+      </div>
+      <!--Loading Card-->
 
       <!-- Hidden div to store anime IDs for JS -->
       <div id="animeIds" data-ids="<%= JSON.stringify(markedAnimeIds) %>"></div>
@@ -101,6 +101,7 @@
       </script>
 
       <script src="/js/lazyLoadAnime.js"></script>
+      <script src="/js/cardClick.js"></script>
 </body>
 
 </html>

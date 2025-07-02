@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
+    clearInterval(window.lazyLoadInterval);
     const pageType = document.body.dataset.pageType;
     const animeContainer = document.querySelector('.anime-cards-container');
     const animeIdsElement = document.getElementById('animeIds');
@@ -26,10 +27,34 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const html = await response.text();
 
-        // ✅ Append the card inside the container
-        animeContainer.insertAdjacentHTML('beforeend', html);
+        // ✅ Create a temporary wrapper to extract new card(s)
+        const tempWrapper = document.createElement('div');
+        tempWrapper.innerHTML = html.trim();
 
-        // ✅ Hide loader AFTER inserting the LAST card
+        const newCards = tempWrapper.querySelectorAll('.a-card');
+
+        newCards.forEach(card => {
+            // Append each new card
+            animeContainer.appendChild(card);
+
+            // Add click listener immediately
+            card.addEventListener('click', async () => {
+                try {
+                    const statusRes = await fetch('/api/auth/status');
+
+                    if (statusRes.ok) {
+                        const animeId = card.dataset.id;
+                        window.location.href = `/anime/${animeId}`;
+                    } else {
+                        openLoginModal();
+                    }
+                } catch (err) {
+                    console.error('Error checking auth status:', err);
+                    openLoginModal(); // Fallback
+                }
+            });
+        });
+
         if (loadedCount >= animeIds.length) {
             loaderBox.style.display = 'none';
         }
@@ -37,6 +62,7 @@ document.addEventListener('DOMContentLoaded', () => {
         console.error(`Error fetching anime (${pageType}):`, error);
     }
 }
+
 
 
 
