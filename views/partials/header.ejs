@@ -22,11 +22,11 @@
 		</div>
 
 		<div class="nav-items">
-			<a href="/">Home</a>
 			<!-- Correct way to use buttons for navigation -->
+			<button class="nav-btn" type="button" onclick="handleNavigation(event, '/')">Home</button>
 			<button class="nav-btn" type="button" onclick="handleNavigation(event, '/api/user/watchlist')">Watchlist</button>
 			<button class="nav-btn" type="button" onclick="handleNavigation(event, '/api/user/markedAnime')">Marked</button>
-			<button class="nav-btn" type="button" onclick="handleNavigation(event, '/api/user/ongoingAnime')">Ongoing</button>
+			<button class="nav-btn" id="ongoing-btn" type="button" onclick="handleNavigation(event, '/api/user/ongoingAnime')">Ongoing</button>
 
 
 		</div>

@@ -10,43 +10,41 @@
 
 <body>
   <%- include('partials/header') %>
-    <main>
-      <div class="justify-it">
-
-
-        <div class="profile-container">
-          <img src="<%= user.profileImage %>" alt="Profile Image" class="profile-image">
+    <main class="profile-wrapper">
+      <div class="profile-card">
+        <div class="profile-left">
+          <img src="<%= user.profileImage %>" alt="Profile Image" class="profile-avatar" />
+          <h2 class="username">Hi, <%= user.username %>
+          </h2>
+          <p class="user-email">
+            <%= user.email %>
+          </p>
+          <form action="/api/auth/logout" method="post">
+            <button type="submit" class="logout-btn">Logout</button>
+          </form>
         </div>
 
-
-        <div class="p-updates">
-          <h1>Hi, <%= user.username %></h1>
-
-          <form class="add-m flex-c">
-            <label for="username">Email:</label>
-            <input type="text" value="<%= user.email %>" disabled>
-          </form>
-
-          <!-- Update Username Form -->
-          <form class="flex-c add-m" action="/update-username" method="post">
-            <label for="username">New Username:</label>
-            <input type="text" id="username" name="username" required>
+        <div class="profile-right">
+          <!-- Username Update -->
+          <form action="/update-username" method="post" class="profile-form">
+            <label for="username">New Username</label>
+            <input type="text" id="username" name="username" placeholder="Enter new username" required>
             <button type="submit">Update Username</button>
           </form>
 
-          <!-- Update Password Form -->
-          <form class="flex-c add-m" action="/update-password" method="post">
-            <label for="current-password">Current Password:</label>
-            <input type="password" id="current-password" name="currentPassword" required>
-            <div class="add-m"></div>
-            <label for="new-password">New Password:</label>
-            <input type="password" id="new-password" name="newPassword" required>
+          <!-- Password Update -->
+          <form action="/update-password" method="post" class="profile-form">
+            <label for="current-password">Current Password</label>
+            <input type="password" id="current-password" name="currentPassword" placeholder="Current password" required>
+
+            <label for="new-password">New Password</label>
+            <input type="password" id="new-password" name="newPassword" placeholder="New password" required>
             <button type="submit">Update Password</button>
           </form>
 
-          <!-- Change Profile Photo Form -->
-          <form class="add-m flex-c" action="/update-profile-photo" method="post">
-            <label for="profileImage">Choose New Profile Image:</label>
+          <!-- Profile Image Update -->
+          <form action="/update-profile-photo" method="post" class="profile-form">
+            <label for="profileImage">Choose New Profile Image</label>
             <select id="profileImage" name="profileImage">
               <% images.forEach(image=> { %>
                 <option value="/images/anime-characters/<%= image %>">
@@ -56,14 +54,10 @@
             </select>
             <button type="submit">Update Profile Photo</button>
           </form>
-
-          <!-- Logout Button -->
-          <form class="add-m" action="/api/auth/logout" method="post">
-            <button type="submit" class="hollow-button">Logout</button>
-          </form>
         </div>
       </div>
     </main>
+
     <%- include('partials/footer') %>
 </body>
 
