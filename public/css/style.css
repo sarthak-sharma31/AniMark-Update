@@ -459,6 +459,7 @@ header {
 	height: 100%;
 	overflow: hidden;
 	position: relative;
+	cursor: pointer;
 }
 
 .anime-image {
@@ -552,8 +553,7 @@ header {
 }
 
 /*Mobile responsiveness */
-@media (max-width: 768px) {
-}
+@media (max-width: 768px) {}
 
 
 
@@ -1623,6 +1623,10 @@ header {
 		width: 12rem;
 		height: 12rem;
 	}
+
+	.slide-info {
+		background: linear-gradient(to right, white 50%, transparent 100%);
+	}
 }
 
 @media only screen and (max-width: 700px) {
@@ -1705,6 +1709,16 @@ header {
 
 	.related-anime-title {
 		font-size: 0.95rem;
+	}
+
+	.slide-info {
+		background: linear-gradient(to right, white 40%, transparent 100%);
+	}
+}
+
+@media screen and (max-width: 400px) {
+	.slide-info {
+		background: linear-gradient(to right, white 35%, transparent 100%);
 	}
 }
 

@@ -17,7 +17,7 @@
     <div class="slider-wrapper">
       <div class="slider">
         <% sliderData.forEach(anime=> { %>
-          <div class="slide">
+          <div class="slide" data-id="<%= anime.mal_id %>">
             <div class="slide-info">
               <h2 class="anime-title">
                 <% if (!anime.title_english) {%>

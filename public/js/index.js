@@ -1,26 +1,4 @@
 document.addEventListener('DOMContentLoaded', () => {
-	// Anime Card Click Event
-	document.querySelectorAll('.a-card').forEach(card => {
-		card.addEventListener('click', async () => {
-		  try {
-			const statusRes = await fetch('/api/auth/status');
-
-			if (statusRes.ok) {
-			  // User is logged in ✅
-			  const animeId = card.dataset.id;
-			  window.location.href = `/anime/${animeId}`;
-			} else {
-			  // Not logged in ❌ => show login popup
-			  openLoginModal();
-			}
-		  } catch (err) {
-			console.error('Error checking auth status:', err);
-			openLoginModal(); // Fallback
-		  }
-		});
-	  });
-
-
 
 	// Scroll Buttons for Anime Lists
 	document.querySelectorAll('.scroll-button').forEach(button => {
