@@ -408,12 +408,6 @@ header {
 	font-size: medium;
 }
 
-.anime-image {
-	width: 100%;
-	height: 350px;
-	object-fit: cover;
-}
-
 .anime-details {
 	padding: 1rem;
 }
@@ -430,7 +424,10 @@ header {
 	margin: 0.25rem 0;
 }
 
+
+
 /*slider here*/
+
 .slider-wrapper {
 	position: relative;
 	width: 100%;
@@ -554,22 +551,8 @@ header {
 	background-color: rgba(0, 0, 0, 1);
 }
 
-/* Mobile responsiveness */
+/*Mobile responsiveness */
 @media (max-width: 768px) {
-	.slide {
-		flex-direction: column;
-	}
-
-	.slide-info,
-	.slide-image-container {
-		width: 100%;
-		position: static;
-	}
-
-	.slide-info {
-		background: white;
-		padding: 30px;
-	}
 }
 
 

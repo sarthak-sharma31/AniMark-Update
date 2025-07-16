@@ -47,7 +47,12 @@ router.post('/register', async (req, res) => {
       sameSite: 'lax'
     });
 
-    res.status(201).json({ status: 201, message: 'Registration successful' });
+    if (req.headers.accept.includes('application/json')) {
+      res.status(201).json({ status: 201, message: 'Registration successful' });
+    } else {
+      res.redirect('/');
+    }
+
 
   } catch (error) {
     console.error('Error registering user:', error);
