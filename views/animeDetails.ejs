@@ -6,9 +6,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>
     <% if (anime.title_english !=null) {%>
-      <%= anime.title_english %>
+      <%= anime.title_english %> - AniMark
         <%}else{%>
-          <%= anime.title %>
+          <%= anime.title %> - AniMark
             <%}%>
   </title>
   <link rel="stylesheet" href="/css/style.css">
@@ -18,34 +18,50 @@
   <%- include('partials/header') %>
     <main class="anime-details-container">
       <% if (anime) { %>
-        <div class="anime-details-left">
-          <img src="<%= anime.images.jpg.image_url %>" alt="<%= anime.title_english %>" class="anime-cover">
-          <div class="anime-info">
-            <h1>
-              <% if (anime.title_english !=null) {%>
-                <%= anime.title_english %>
-                  <%}else{%>
-                    <%= anime.title %>
-                      <%}%>
-            </h1>
-            <p>Rating: <%= anime.score %> (<%= anime.scored_by %> users)</p>
-            <p>Genres: <%= anime.genres.map(genre=> genre.name).join(', ') %></p>
-            <p>Status: <%= anime.status %>
-            </p>
-            <p>Synopsis: <%= anime.synopsis %>
-            </p>
-            <button id="watchlist-btn" data-in-watchlist="<%= isInWatchlist %>">
-              <%= isInWatchlist ? 'Remove from Watchlist' : 'Add to Watchlist' %>
-            </button>
-            <button id="mark-btn" data-marked="<%= isMarked %>">
-              <%= isMarked ? 'UnMark Anime' : 'Mark Anime' %>
-            </button>
-            <button id="clear-all-episodes-btn">Clear All Episodes</button>
-            <div>
-              <iframe width="800" height="500" src="<%= anime.trailer.embed_url%>" title="<%=anime.title%>" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        <div class="anime-details-main">
+          <div class="anime-meta">
+            <img src="<%= anime.images.jpg.image_url %>" alt="<%= anime.title_english %>" class="anime-cover" />
+
+            <div class="anime-info">
+              <h1>
+                <%= anime.title_english || anime.title %>
+              </h1>
+              <p><strong>Rating:</strong>
+                <%= anime.score %> (<%= anime.scored_by %> users)
+              </p>
+              <p><strong>Genres:</strong>
+                <%= anime.genres.map(genre=> genre.name).join(', ') %>
+              </p>
+              <p><strong>Status:</strong>
+                <%= anime.status %>
+              </p>
+
+              <div class="anime-actions">
+                <button id="watchlist-btn" data-in-watchlist="<%= isInWatchlist %>">
+                  <%= isInWatchlist ? 'Remove from Watchlist' : 'Add to Watchlist' %>
+                </button>
+                <button id="mark-btn" data-marked="<%= isMarked %>">
+                  <%= isMarked ? 'UnMark Anime' : 'Mark Anime' %>
+                </button>
+                <button id="clear-all-episodes-btn">Clear All Episodes</button>
+              </div>
             </div>
           </div>
+
+          <div class="anime-synopsis">
+            <h2>Synopsis</h2>
+            <p>
+              <%= anime.synopsis %>
+            </p>
+          </div>
+
+          <% if (anime.trailer && anime.trailer.embed_url) { %>
+            <div class="anime-trailer">
+              <iframe src="<%= anime.trailer.embed_url %>?autoplay=0" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen title="<%= anime.title %> trailer"></iframe>
+            </div>
+            <% } %>
         </div>
+
         <div class="anime-details-right">
           <h2>Episodes</h2>
 
