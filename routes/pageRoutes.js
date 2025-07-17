@@ -108,7 +108,7 @@ router.get('/anime/:id', authMiddleware, async (req, res) => {
 router.get('/search', async (req, res) => {
 	const query = req.query.query;
 	try {
-	  const response = await axios.get(`${jikanURL}?q=${query}`);
+	  const response = await axios.get(`${jikanURL}?q=${query}&sfw`);
 	  const searchResults = response.data.data;
 
 	  res.render('searchResults', {
