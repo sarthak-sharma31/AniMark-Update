@@ -573,6 +573,10 @@ header {
 	margin: 1rem;
 	height: auto;
 	max-width: 15rem;
+<<<<<<< HEAD
+=======
+	min-height: 7rem;
+>>>>>>> d8cac8fbafbad4c1b7f765827907c9db3e1660f7
 	padding: 1rem;
 	border-radius: 8px;
 	display: none;
