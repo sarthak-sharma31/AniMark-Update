@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>
+    <%= title %>
+  </title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+
+  <%- include('partials/header') %>
+
+    <main>
+      <h1>
+        <%= title %>
+      </h1>
+
+      <!-- Anime Cards Container (starts empty) -->
+      <div class="anime-cards-container" id="animeCardsContainer"></div>
+      <!--Loading Card-->
+      <div class="loaderBox">
+        <div class="loadingspinner flexIt">
+          <div id="square1"></div>
+          <div id="square2"></div>
+          <div id="square3"></div>
+          <div id="square4"></div>
+          <div id="square5"></div>
+        </div>
+      </div>
+      <!--Loading Card-->
+
+      <!-- Pass anime IDs to JS via data attribute -->
+      <div id="animeIds" data-ids="<%= JSON.stringify(animeIds) %>"></div>
+    </main>
+
+    <%- include('partials/footer') %>
+
+      <!-- Use your centralized lazy loading script -->
+      <script src="/js/lazyLoadAnime.js"></script>
+</body>
+
+</html>

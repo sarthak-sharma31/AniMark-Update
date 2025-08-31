@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profile</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <%- include('partials/header') %>
+    <main class="profile-wrapper">
+      <div class="profile-card">
+        <div class="profile-left">
+          <img src="<%= user.profileImage %>" alt="Profile Image" class="profile-avatar" />
+          <h2 class="username">Hi, <%= user.username %>
+          </h2>
+          <p class="user-email">
+            <%= user.email %>
+          </p>
+          <form action="/api/auth/logout" method="post">
+            <button type="submit" class="logout-btn">Logout</button>
+          </form>
+        </div>
+
+        <div class="profile-right">
+          <!-- Username Update -->
+          <form action="/update-username" method="post" class="profile-form">
+            <label for="username">New Username</label>
+            <input type="text" id="username" name="username" placeholder="Enter new username" required>
+            <button type="submit">Update Username</button>
+          </form>
+
+          <!-- Password Update -->
+          <form action="/update-password" method="post" class="profile-form">
+            <label for="current-password">Current Password</label>
+            <input type="password" id="current-password" name="currentPassword" placeholder="Current password" required>
+
+            <label for="new-password">New Password</label>
+            <input type="password" id="new-password" name="newPassword" placeholder="New password" required>
+            <button type="submit">Update Password</button>
+          </form>
+
+          <!-- Profile Image Update -->
+          <form action="/update-profile-photo" method="post" class="profile-form">
+            <label for="profileImage">Choose New Profile Image</label>
+            <select id="profileImage" name="profileImage">
+              <% images.forEach(image=> { %>
+                <option value="/images/anime-characters/<%= image %>">
+                  <%= image %>
+                </option>
+                <% }) %>
+            </select>
+            <button type="submit">Update Profile Photo</button>
+          </form>
+        </div>
+      </div>
+    </main>
+
+    <%- include('partials/footer') %>
+</body>
+
+</html>
